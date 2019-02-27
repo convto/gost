@@ -9,12 +9,7 @@ $ chmod +x /usr/local/bin/gost
 ```
 
 ## Usage
-Pipe pattern.
+Pass the results of test using pipe.
 ```
 go test -v ./... | gost
-```
-
-Stdin pattern.
-```
-go test -v ./... | xargs gost
 ```

@@ -1,26 +1,18 @@
 #!/bin/bash
 
-_gost() {
-	GREEN=$(printf '\e[32;1m')
-	RED=$(printf '\e[91m')
-	YELLOW=$(printf '\e[93m')
-	GRAY=$(printf '\e[90m')
-	BOLD=$(printf '\e[1m')
-	RESET=$(printf '\e[0m')
+GREEN=$(printf '\e[32;1m')
+RED=$(printf '\e[91m')
+YELLOW=$(printf '\e[93m')
+GRAY=$(printf '\e[90m')
+BOLD=$(printf '\e[1m')
+RESET=$(printf '\e[0m')
 
-	pass="s/^[[:space:]]*--- PASS: .+$/${GREEN}&${RESET}/;"
-	fail="s/^[[:space:]]*--- FAIL: .+$/${RED}&${RESET}/;"
-	skip="s/^[[:space:]]*--- SKIP: .+$/${YELLOW}&${RESET}/;"
-	result_pass="s/^PASS$/${BOLD}${GREEN}&${RESET}/;"
-	result_fail="s/^FAIL$/${BOLD}${RED}&${RESET}/;"
-	run="s/^=== RUN /${BOLD}&${RESET}/;"
-	elapsed="s/\\([[:digit:]]+\\.[[:digit:]]+s\\)/${GRAY}&${RESET}/;"
+pass="s/^[[:space:]]*--- PASS: .+$/${GREEN}&${RESET}/;"
+fail="s/^[[:space:]]*--- FAIL: .+$/${RED}&${RESET}/;"
+skip="s/^[[:space:]]*--- SKIP: .+$/${YELLOW}&${RESET}/;"
+result_pass="s/^PASS$/${BOLD}${GREEN}&${RESET}/;"
+result_fail="s/^FAIL$/${BOLD}${RED}&${RESET}/;"
+run="s/^=== RUN /${BOLD}&${RESET}/;"
+elapsed="s/\\([[:digit:]]+\\.[[:digit:]]+s\\)/${GRAY}&${RESET}/;"
 
-	cat - | sed -E "$pass $fail $skip $result_pass $result_fail $run $elapsed"
-}
-
-if [ -p /dev/stdin ]; then
-	cat -
-else
-	echo $@
-fi | _gost
+cat - | sed -E "$pass $fail $skip $result_pass $result_fail $run $elapsed"
