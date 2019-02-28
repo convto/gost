@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GREEN=$(printf '\e[32;1m')
+GREEN=$(printf '\e[32m')
 RED=$(printf '\e[91m')
 YELLOW=$(printf '\e[93m')
 GRAY=$(printf '\e[90m')
