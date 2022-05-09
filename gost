@@ -10,8 +10,8 @@ RESET=$(printf '\e[0m')
 pass="s/^[[:space:]]*--- PASS: .+$/${GREEN}&${RESET}/;"
 fail="s/^[[:space:]]*--- FAIL: .+$/${RED}&${RESET}/;"
 skip="s/^[[:space:]]*--- SKIP: .+$/${YELLOW}&${RESET}/;"
-result_pass="s/^PASS$/${BOLD}${GREEN}&${RESET}/;"
-result_fail="s/^FAIL$/${BOLD}${RED}&${RESET}/;"
+result_pass="s/^(PASS|ok).*/${BOLD}${GREEN}&${RESET}/;"
+result_fail="s/^FAIL.*/${BOLD}${RED}&${RESET}/;"
 run="s/^=== RUN /${BOLD}&${RESET}/;"
 elapsed="s/\\([[:digit:]]+\\.[[:digit:]]+s\\)/${GRAY}&${RESET}/;"
 
